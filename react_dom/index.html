@@ -6,13 +6,19 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- need babel to compile the JSX -->
     <script type="text/jsx">
       const app = document.getElementById('app');
-      function Header(){
-        return (<h1>Develop. Preview. Ship.</h1>);
+      function Header(props){
+        return (<h1>Develop. Preview. Ship.</h1>
+                <h2>{props.title}</h2>
+                <h3>{`Cool, its ${props.title} in a literal template!`}</h3>
+                <h4>{title ? title+" is true!" : 'satisfied the false condition'}</h4>
+                    );
       }
 
       function HomePage(){
+        
         return (<div>
             {/* Nesting the Header component */}
+            <Header title="React!"/>
             <Header />
         </div>
         );
